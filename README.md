@@ -10,10 +10,11 @@
             text-align: center;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            background: url('Imagem do WhatsApp de 2024-11-04 à(s) 14.05.30_b9f6afe8.jpg') no-repeat center center fixed;
+            background-size: cover;
         }
         header {
-            background-color: #006400;
+            background-color: rgba(0, 100, 0, 0.8);
             color: white;
             padding: 15px;
             font-size: 24px;
@@ -25,6 +26,10 @@
         }
         .container {
             padding: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            display: inline-block;
+            margin-top: 20px;
         }
         .planos {
             display: flex;
@@ -51,7 +56,7 @@
         footer {
             margin-top: 20px;
             padding: 10px;
-            background-color: #006400;
+            background-color: rgba(0, 100, 0, 0.8);
             color: white;
         }
     </style>
@@ -92,4 +97,5 @@
     </footer>
 </body>
 </html>
+
 
