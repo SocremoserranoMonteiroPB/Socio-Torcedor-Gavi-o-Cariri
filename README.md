@@ -18,6 +18,11 @@
             padding: 15px;
             font-size: 24px;
         }
+        .logo {
+            width: 150px;
+            margin: 10px auto;
+            display: block;
+        }
         .container {
             padding: 20px;
         }
@@ -52,7 +57,10 @@
     </style>
 </head>
 <body>
-    <header>Sócio-Torcedor Gavião</header>
+    <header>
+        <img src="Imagem do WhatsApp de 2024-11-04 à(s) 14.05.30_b9f6afe8.jpg" alt="Logo Sócio-Torcedor Gavião" class="logo">
+        Sócio-Torcedor Gavião
+    </header>
     <div class="container">
         <h2>Seja um sócio e fortaleça o nosso time!</h2>
         <div class="planos">
@@ -84,3 +92,4 @@
     </footer>
 </body>
 </html>
+
