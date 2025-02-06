@@ -58,24 +58,24 @@
         <div class="planos">
             <div class="plano">
                 <h3>Plano Gavião</h3>
-                <p>R$ 10/mês</p>
+                <p>R$ 15/mês</p>
                 <p>✅ 50% de desconto nos ingressos</p>
                 <p>✅ Sorteios mensais</p>
-                <a href="#" class="botao">Quero Assinar</a>
+                <a href="https://pag.ae/7_mvni32L" class="botao">Quero Assinar</a>
             </div>
             <div class="plano">
                 <h3>Plano Carcará</h3>
-                <p>R$ 25/mês</p>
+                <p>R$ 30/mês</p>
                 <p>✅ Benefícios do Plano Gavião</p>
                 <p>✅ Camisa oficial após 6 meses</p>
-                <a href="#" class="botao">Quero Assinar</a>
+                <a href="https://pag.ae/7_mvwab4s" class="botao">Quero Assinar</a>
             </div>
             <div class="plano">
                 <h3>Plano Elite Serrano</h3>
-                <p>R$ 50/mês</p>
+                <p>R$ 45/mês</p>
                 <p>✅ Benefícios do Plano Carcará</p>
                 <p>✅ Entrada gratuita nos jogos</p>
-                <a href="#" class="botao">Quero Assinar</a>
+                <a href="https://pag.ae/7_mvwDpup" class="botao">Quero Assinar</a>
             </div>
         </div>
     </div>
