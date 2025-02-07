@@ -19,7 +19,7 @@
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            max-width: 600px;
+            max-width: 800px;
             margin: auto;
         }
         .planos {
@@ -33,7 +33,7 @@
             color: white;
             padding: 15px;
             border-radius: 8px;
-            width: 180px;
+            width: 200px;
             text-align: center;
         }
         .botao {
@@ -47,7 +47,7 @@
             cursor: pointer;
         }
         .logo {
-            width: 150px;
+            width: 200px;
             margin-bottom: 10px;
         }
         .header {
@@ -68,69 +68,28 @@
                 <h3>Plano Gavião</h3>
                 <p>R$ 15/mês</p>
                 <p>15% de desconto no ingresso</p>
-                <button class="botao" onclick="selecionarPlano('Gavião', 15)">Quero Assinar</button>
+                <button class="botao">Quero Assinar</button>
             </div>
             <div class="plano">
                 <h3>Plano Carcará</h3>
                 <p>R$ 30/mês</p>
                 <p>30% de desconto no ingresso</p>
                 <p>Sorteio de brindes</p>
-                <button class="botao" onclick="selecionarPlano('Carcará', 30)">Quero Assinar</button>
+                <button class="botao">Quero Assinar</button>
             </div>
             <div class="plano">
                 <h3>Plano Elite Serrano</h3>
                 <p>R$ 45/mês</p>
                 <p>50% de desconto no ingresso</p>
                 <p>Sorteio de brindes</p>
-                <button class="botao" onclick="selecionarPlano('Elite Serrano', 45)">Quero Assinar</button>
+                <button class="botao">Quero Assinar</button>
             </div>
-        </div>
-        <div id="formulario" style="display:none; margin-top: 20px;">
-            <h2>Preencha seus dados</h2>
-            <form id="socioForm" onsubmit="return enviarFormulario()">
-                <label>Nome:</label><br>
-                <input type="text" id="nome" required><br><br>
-                <input type="hidden" id="planoSelecionado">
-                <label>Forma de Pagamento:</label><br>
-                <select id="pagamento" required>
-                    <option value="PIX">PIX</option>
-                    <option value="Cartão de Crédito">Cartão de Crédito</option>
-                    <option value="Boleto">Boleto</option>
-                </select><br><br>
-                <button type="submit" class="botao">Confirmar Associação</button>
-            </form>
         </div>
     </div>
     <div class="container" style="margin-top: 20px;">
         <h2>História do Clube</h2>
         <p>O Socremo-Serrano é um time tradicional de Monteiro-PB, com grande paixão da torcida. Em 2025, o time disputará a 2ª divisão do Campeonato Paraibano Masculino, além do Campeonato Paraibano Feminino e as categorias de base Sub-15, Sub-17 e Sub-20.</p>
     </div>
-    <script>
-        function selecionarPlano(plano, valor) {
-            document.getElementById("planoSelecionado").value = plano + " - R$ " + valor + "/mês";
-            document.getElementById("formulario").style.display = "block";
-        }
-
-        function enviarFormulario() {
-            let nome = document.getElementById("nome").value;
-            let plano = document.getElementById("planoSelecionado").value;
-            let pagamento = document.getElementById("pagamento").value;
-            
-            if (nome === "") {
-                alert("Por favor, preencha seu nome.");
-                return false;
-            }
-            
-            let email = "seuemail@example.com";
-            let assunto = "Novo Sócio-Torcedor: " + nome;
-            let corpo = "Nome: " + nome + "\nPlano: " + plano + "\nForma de Pagamento: " + pagamento + "\nConfirmação de associação.";
-            
-            let mailtoLink = "mailto:" + email + "?subject=" + encodeURIComponent(assunto) + "&body=" + encodeURIComponent(corpo);
-            window.location.href = mailtoLink;
-            
-            return false;
-        }
-    </script>
 </body>
 </html>
 
