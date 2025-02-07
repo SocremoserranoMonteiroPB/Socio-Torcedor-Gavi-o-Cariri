@@ -1,120 +1,42 @@
-[<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sócio-Torcedor Socremo-Serrano</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            background-image: url('papel-de-parede.jpg');
-            background-size: cover;
-            background-position: center;
-             background: url('Imagem do WhatsApp de 2024-11-04 à(s) 14.05.30_b9f6afe8.jpg') no-repeat center center fixed;
-            padding: 20px;
-            color: white;
-        }
-        .banner {
-            background-color: #ffcc00;
-            color: black;
-            padding: 10px;
-            font-size: 20px;
-            font-weight: bold;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            left: 0;
-            animation: moveBanner 10s linear infinite;
-        }
-        @keyframes moveBanner {
-            from { transform: translateX(100%); }
-            to { transform: translateX(-100%); }
-        }
-        .container {
-            background-color: rgba(0, 0, 0, 0.8);
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            max-width: 800px;
-            margin: auto;
-            margin-top: 50px;
-        }
-        .planos {
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-        .plano {
-            background-color: #006400;
-            color: white;
-            padding: 15px;
-            border-radius: 8px;
-            width: 200px;
-            text-align: center;
-        }
-        .botao {
-            display: inline-block;
-            margin-top: 10px;
-            padding: 10px;
-            background-color: #ffcc00;
-            color: black;
-            text-decoration: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        .logo {
-            width: 200px;
-            margin-bottom: 10px;
-        }
-        .header {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-    </style>
-</head>
-<body>
-    <div class="banner">VENHA SER NOSSO SÓCIO-TORCEDOR!</div>
-    <audio autoplay loop>
-        <source src="musica.mp3" type="audio/mpeg">
-    </audio>
-    <div class="header">
-        <img src="logo.png" alt="Logo Socremo-Serrano" class="logo">
-        <h1>Seja um Sócio-Torcedor e fortaleça o nosso time!</h1>
+import React, { useState } from "react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Select, SelectItem } from "@/components/ui/select";
+
+export default function SocremoSerranoSite() {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [plan, setPlan] = useState("Gavião Verde");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    alert(`Cadastro realizado! Nome: ${name}, Email: ${email}, Plano: ${plan}`);
+  };
+
+  return (
+    <div className="p-6">
+      <h1 className="text-3xl font-bold mb-4">Sócio Torcedor - Socremo Serrano</h1>
+      <p className="mb-4">Seja um sócio e apoie nosso time! Escolha seu plano abaixo.</p>
+      
+      <form onSubmit={handleSubmit} className="mb-6 space-y-4">
+        <Input placeholder="Nome Completo" value={name} onChange={(e) => setName(e.target.value)} required />
+        <Input placeholder="Email" type="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
+        <Select value={plan} onChange={(e) => setPlan(e.target.value)}>
+          <SelectItem value="Gavião Verde">Gavião Verde</SelectItem>
+          <SelectItem value="Carcará Vermelho">Carcará Vermelho</SelectItem>
+          <SelectItem value="Elite Serrano Azul">Elite Serrano Azul</SelectItem>
+        </Select>
+        <Button type="submit">Finalizar Cadastro</Button>
+      </form>
+
+      <h2 className="text-2xl font-bold mt-6 mb-4">Notícias</h2>
+      <Card>
+        <CardContent>
+          <p>Em breve, novidades sobre o time!</p>
+        </CardContent>
+      </Card>
     </div>
-    <div class="container">
-        <h2>Escolha seu Plano</h2>
-        <div class="planos">
-            <div class="plano">
-                <h3>Plano Gavião</h3>
-                <p>R$ 15/mês</p>
-                <p>15% de desconto no ingresso</p>
-                <button class="botao">Quero Assinar</button>
-                 <a href="https://pag.ae/7_mvni32L" class="botao">Quero Assinar</a>
-            </div>
-            <div class="plano">
-                <h3>Plano Carcará</h3>
-                <p>R$ 30/mês</p>
-                <p>30% de desconto no ingresso</p>
-                <p>Sorteio de brindes</p>
-                <button class="botao">Quero Assinar</button>
-                 <a href="https://pag.ae/7_mvwab4s" class="botao">Quero Assinar</a>
-            </div>
-            <div class="plano">
-                <h3>Plano Elite Serrano</h3>
-                <p>R$ 45/mês</p>
-                <p>50% de desconto no ingresso</p>
-                <p>Sorteio de brindes</p>
-                <button class="botao">Quero Assinar</button>
-                <a href="https://pag.ae/7_mvwDpup" class="botao">Quero Assinar</a>
-            </div>
-        </div>
-    </div>
-    <div class="container" style="margin-top: 20px;">
-        <h2>História do Clube</h2>
-        <p>Venha ser nosso socio torcedor do Gavião do Cariri, O Socremo-Serrano é um time tradicional de Monteiro-PB, com grande paixão da torcida. Em 2025, o time disputará a 2ª divisão do Campeonato Paraibano Masculino, além do Campeonato Paraibano Feminino e as categorias de base Sub-15, Sub-17 e Sub-20.</p>
-    </div>
-</body>
-</html>
-](https://socremoserranomonteiropb.github.io/Socio-Torcedor-Gaviao-Cariri/)
+  );
+}
+
