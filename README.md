@@ -3,46 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sócio-Torcedor Gavião</title>
+    <title>Carteirinha Sócio-Torcedor</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             text-align: center;
-            margin: 0;
-            padding: 0;
-            background: url('Imagem do WhatsApp de 2024-11-04 à(s) 14.05.30_b9f6afe8.jpg') no-repeat center center fixed;
-            background-size: cover;
-        }
-        header {
-            background-color: rgba(0, 100, 0, 0.8);
-            color: white;
-            padding: 15px;
-            font-size: 24px;
-        }
-        .logo {
-            width: 150px;
-            margin: 10px auto;
-            display: block;
+            background-color: #f4f4f4;
+            padding: 20px;
         }
         .container {
-            padding: 20px;
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 10px;
-            display: inline-block;
-            margin-top: 20px;
-        }
-        .planos {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-        .plano {
             background-color: white;
-            padding: 15px;
+            padding: 20px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            width: 250px;
+            max-width: 400px;
+            margin: auto;
         }
         .botao {
             display: inline-block;
@@ -53,49 +28,67 @@
             text-decoration: none;
             border-radius: 5px;
         }
-        footer {
+        .carteirinha {
+            display: none;
             margin-top: 20px;
-            padding: 10px;
-            background-color: rgba(0, 100, 0, 0.8);
+            padding: 15px;
+            background-color: #006400;
             color: white;
+            border-radius: 8px;
+        }
+        .logo {
+            width: 150px;
+            margin-bottom: 10px;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
         }
     </style>
 </head>
 <body>
-    <header>
-        <img src="Imagem do WhatsApp de 2024-11-04 à(s) 14.05.30_b9f6afe8.jpg" alt="Logo Sócio-Torcedor Gavião" class="logo">
-        Sócio-Torcedor Gavião
-    </header>
+    <div class="header">
+        <img src="logo.png" alt="Logo Socremo-Serrano" class="logo">
+        <h1>Seja bem-vindo ao site Sócio-Torcedor Socremo-Serrano!</h1>
+        <p>"Juntos, somos mais fortes!"</p>
+    </div>
     <div class="container">
-        <h2>Seja um sócio e fortaleça o nosso time!</h2>
-        <div class="planos">
-            <div class="plano">
-                <h3>Plano Gavião</h3>
-                <p>R$ 15/mês</p>
-                <p>✅ 50% de desconto nos ingressos</p>
-                <p>✅ Sorteios mensais</p>
-                <a href="https://pag.ae/7_mvni32L" class="botao">Quero Assinar</a>
-            </div>
-            <div class="plano">
-                <h3>Plano Carcará</h3>
-                <p>R$ 30/mês</p>
-                <p>✅ Benefícios do Plano Gavião</p>
-                <p>✅ Camisa oficial após 6 meses</p>
-                <a href="https://pag.ae/7_mvwab4s" class="botao">Quero Assinar</a>
-            </div>
-            <div class="plano">
-                <h3>Plano Elite Serrano</h3>
-                <p>R$ 45/mês</p>
-                <p>✅ Benefícios do Plano Carcará</p>
-                <p>✅ Entrada gratuita nos jogos</p>
-                <a href="https://pag.ae/7_mvwDpup" class="botao">Quero Assinar</a>
-            </div>
+        <h2>Gerar Carteirinha Digital</h2>
+        <form id="socioForm">
+            <label>Nome:</label><br>
+            <input type="text" id="nome" required><br><br>
+            <label>Plano:</label><br>
+            <select id="plano">
+                <option value="Gavião">Plano Gavião - R$ 15 (15% de desconto nos ingressos)</option>
+                <option value="Carcará">Plano Carcará - R$ 30 (30% de desconto nos ingressos + sorteio de brindes)</option>
+                <option value="Elite Serrano">Plano Elite Serrano - R$ 45 (50% de desconto nos ingressos + sorteio de brindes)</option>
+            </select><br><br>
+            <button type="button" class="botao" onclick="gerarCarteirinha()">Gerar Carteirinha</button>
+        </form>
+        <div id="carteirinha" class="carteirinha">
+            <h3>Carteirinha Sócio-Torcedor</h3>
+            <p id="nomeSocio"></p>
+            <p id="planoSocio"></p>
+            <p>QR Code de Validação</p>
+            <img id="qrCode" src="" alt="QR Code" width="100">
         </div>
     </div>
-    <footer>
-        📲 Contato: Wellington Paiva - WhatsApp: (83) 9638-0337
-    </footer>
+    <script>
+        function gerarCarteirinha() {
+            let nome = document.getElementById("nome").value;
+            let plano = document.getElementById("plano").value;
+            if (nome === "") {
+                alert("Por favor, preencha seu nome.");
+                return;
+            }
+            document.getElementById("nomeSocio").innerText = "Nome: " + nome;
+            document.getElementById("planoSocio").innerText = "Plano: " + plano;
+            document.getElementById("qrCode").src = "https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=" + encodeURIComponent(nome + " - " + plano);
+            document.getElementById("carteirinha").style.display = "block";
+        }
+    </script>
 </body>
 </html>
+
 
 
