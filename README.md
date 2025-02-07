@@ -11,6 +11,7 @@
             background-image: url('papel-de-parede.jpg');
             background-size: cover;
             background-position: center;
+             background: url('Imagem do WhatsApp de 2024-11-04 à(s) 14.05.30_b9f6afe8.jpg') no-repeat center center fixed;
             padding: 20px;
             color: white;
         }
@@ -90,6 +91,7 @@
                 <p>R$ 15/mês</p>
                 <p>15% de desconto no ingresso</p>
                 <button class="botao">Quero Assinar</button>
+                 <a href="https://pag.ae/7_mvni32L" class="botao">Quero Assinar</a>
             </div>
             <div class="plano">
                 <h3>Plano Carcará</h3>
@@ -97,6 +99,7 @@
                 <p>30% de desconto no ingresso</p>
                 <p>Sorteio de brindes</p>
                 <button class="botao">Quero Assinar</button>
+                 <a href="https://pag.ae/7_mvwab4s" class="botao">Quero Assinar</a>
             </div>
             <div class="plano">
                 <h3>Plano Elite Serrano</h3>
@@ -104,6 +107,7 @@
                 <p>50% de desconto no ingresso</p>
                 <p>Sorteio de brindes</p>
                 <button class="botao">Quero Assinar</button>
+                <a href="https://pag.ae/7_mvwDpup" class="botao">Quero Assinar</a>
             </div>
         </div>
     </div>
