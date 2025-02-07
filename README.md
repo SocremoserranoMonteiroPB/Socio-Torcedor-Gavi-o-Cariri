@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+[<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
@@ -109,7 +109,8 @@
     </div>
     <div class="container" style="margin-top: 20px;">
         <h2>História do Clube</h2>
-        <p>O Socremo-Serrano é um time tradicional de Monteiro-PB, com grande paixão da torcida. Em 2025, o time disputará a 2ª divisão do Campeonato Paraibano Masculino, além do Campeonato Paraibano Feminino e as categorias de base Sub-15, Sub-17 e Sub-20.</p>
+        <p>Venha ser nosso socio torcedor do Gavião do Cariri, O Socremo-Serrano é um time tradicional de Monteiro-PB, com grande paixão da torcida. Em 2025, o time disputará a 2ª divisão do Campeonato Paraibano Masculino, além do Campeonato Paraibano Feminino e as categorias de base Sub-15, Sub-17 e Sub-20.</p>
     </div>
 </body>
 </html>
+](https://socremoserranomonteiropb.github.io/Socio-Torcedor-Gaviao-Cariri/)
