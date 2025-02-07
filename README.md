@@ -36,20 +36,20 @@ export default function SocremoSerrano() {
             <CardContent>
               <h2 className="text-2xl font-semibold">Escolha seu plano</h2>
               <p className="text-gray-600">Apoie o Socremo-Serrano e tenha benefícios exclusivos!</p>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
+              <div className="grid grid-cols-1 md-grid-cols-3 gap-4 mt-4">
                 <div className="p-4 bg-white rounded-lg shadow">
                   <h3 className="font-bold text-lg">Plano Bronze</h3>
-                  <p>R$ 19,90/mês</p>
+                  <p>R$ 14,99/mês</p>
                   <Button className="mt-2">Assinar</Button>
                 </div>
                 <div className="p-4 bg-white rounded-lg shadow">
                   <h3 className="font-bold text-lg">Plano Prata</h3>
-                  <p>R$ 29,90/mês</p>
+                  <p>R$ 29,99/mês</p>
                   <Button className="mt-2">Assinar</Button>
                 </div>
                 <div className="p-4 bg-white rounded-lg shadow">
                   <h3 className="font-bold text-lg">Plano Ouro</h3>
-                  <p>R$ 49,90/mês</p>
+                  <p>R$ 44,99/mês</p>
                   <Button className="mt-2">Assinar</Button>
                 </div>
               </div>
@@ -95,4 +95,5 @@ export default function SocremoSerrano() {
     </div>
   );
 }
+
 
