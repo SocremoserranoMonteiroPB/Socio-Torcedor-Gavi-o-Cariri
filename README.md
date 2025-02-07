@@ -14,6 +14,22 @@
             padding: 20px;
             color: white;
         }
+        .banner {
+            background-color: #ffcc00;
+            color: black;
+            padding: 10px;
+            font-size: 20px;
+            font-weight: bold;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            animation: moveBanner 10s linear infinite;
+        }
+        @keyframes moveBanner {
+            from { transform: translateX(100%); }
+            to { transform: translateX(-100%); }
+        }
         .container {
             background-color: rgba(0, 0, 0, 0.8);
             padding: 20px;
@@ -21,6 +37,7 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             max-width: 800px;
             margin: auto;
+            margin-top: 50px;
         }
         .planos {
             display: flex;
@@ -57,6 +74,10 @@
     </style>
 </head>
 <body>
+    <div class="banner">VENHA SER NOSSO SÓCIO-TORCEDOR!</div>
+    <audio autoplay loop>
+        <source src="musica.mp3" type="audio/mpeg">
+    </audio>
     <div class="header">
         <img src="logo.png" alt="Logo Socremo-Serrano" class="logo">
         <h1>Seja um Sócio-Torcedor e fortaleça o nosso time!</h1>
@@ -92,4 +113,3 @@
     </div>
 </body>
 </html>
-
