@@ -4,6 +4,8 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { FaTicketAlt, FaNewspaper, FaUser, FaCamera } from "react-icons/fa";
+import Image from "next/image";
+import logo from "/logo.png"; 
 
 export default function SocremoSerrano() {
   const [email, setEmail] = useState("");
@@ -11,8 +13,9 @@ export default function SocremoSerrano() {
   return (
     <div className="p-6 bg-gray-100 min-h-screen">
       <header className="text-center mb-6">
+        <Image src={logo} alt="Logo Socremo Serrano" width={150} height={150} className="mx-auto mb-4" />
         <h1 className="text-4xl font-bold text-green-700">Sócio Torcedor - Socremo Serrano</h1>
-        <p className="text-gray-600">Seja parte da nossa história!</p>
+        <p className="text-gray-600">Seja parte da nossa história! Junte-se a nós e ajude a fortalecer o nosso time, aproveitando benefícios exclusivos.</p>
       </header>
 
       <Tabs defaultValue="planos" className="w-full max-w-3xl mx-auto">
