@@ -1,64 +1,98 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Select, SelectItem } from "@/components/ui/select";
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
+import { FaTicketAlt, FaNewspaper, FaUser, FaCamera } from "react-icons/fa";
 
-export default function SocremoSerranoSite() {
-  const [name, setName] = useState("");
+export default function SocremoSerrano() {
   const [email, setEmail] = useState("");
-  const [plan, setPlan] = useState("");
-  const [payment, setPayment] = useState("");
-  const [step, setStep] = useState(1);
-
-  const handleNextStep = () => setStep(2);
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    alert(`Cadastro realizado! Nome: ${name}, Email: ${email}, Plano: ${plan}, Pagamento: ${payment}`);
-  };
 
   return (
-    <div className="p-6">
-      <h1 className="text-3xl font-bold mb-4 text-center">Sócio Torcedor - Socremo Serrano</h1>
-      <p className="mb-4 text-center">Escolha seu plano e faça parte do nosso time!</p>
+    <div className="p-6 bg-gray-100 min-h-screen">
+      <header className="text-center mb-6">
+        <h1 className="text-4xl font-bold text-green-700">Sócio Torcedor - Socremo Serrano</h1>
+        <p className="text-gray-600">Seja parte da nossa história!</p>
+      </header>
 
-      {step === 1 && (
-        <div className="space-y-4">
-          <h2 className="text-2xl font-bold">Escolha seu Plano</h2>
-          <Select value={plan} onChange={(e) => setPlan(e.target.value)} required>
-            <SelectItem value="Gavião Verde">Gavião Verde - R$ 30/mês</SelectItem>
-            <SelectItem value="Carcará Vermelho">Carcará Vermelho - R$ 50/mês</SelectItem>
-            <SelectItem value="Elite Serrano Azul">Elite Serrano Azul - R$ 100/mês</SelectItem>
-          </Select>
+      <Tabs defaultValue="planos" className="w-full max-w-3xl mx-auto">
+        <TabsList className="flex justify-between bg-green-700 p-2 rounded-xl">
+          <TabsTrigger value="planos" className="text-white flex items-center gap-2">
+            <FaUser /> Planos
+          </TabsTrigger>
+          <TabsTrigger value="noticias" className="text-white flex items-center gap-2">
+            <FaNewspaper /> Notícias
+          </TabsTrigger>
+          <TabsTrigger value="fotos" className="text-white flex items-center gap-2">
+            <FaCamera /> Fotos
+          </TabsTrigger>
+          <TabsTrigger value="ingressos" className="text-white flex items-center gap-2">
+            <FaTicketAlt /> Ingressos
+          </TabsTrigger>
+        </TabsList>
 
-          <h2 className="text-2xl font-bold">Forma de Pagamento</h2>
-          <Select value={payment} onChange={(e) => setPayment(e.target.value)} required>
-            <SelectItem value="Cartão de Crédito">Cartão de Crédito</SelectItem>
-            <SelectItem value="Boleto Bancário">Boleto Bancário</SelectItem>
-            <SelectItem value="PIX">PIX</SelectItem>
-          </Select>
+        <TabsContent value="planos">
+          <Card className="mt-4">
+            <CardContent>
+              <h2 className="text-2xl font-semibold">Escolha seu plano</h2>
+              <p className="text-gray-600">Apoie o Socremo-Serrano e tenha benefícios exclusivos!</p>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
+                <div className="p-4 bg-white rounded-lg shadow">
+                  <h3 className="font-bold text-lg">Plano Bronze</h3>
+                  <p>R$ 19,90/mês</p>
+                  <Button className="mt-2">Assinar</Button>
+                </div>
+                <div className="p-4 bg-white rounded-lg shadow">
+                  <h3 className="font-bold text-lg">Plano Prata</h3>
+                  <p>R$ 29,90/mês</p>
+                  <Button className="mt-2">Assinar</Button>
+                </div>
+                <div className="p-4 bg-white rounded-lg shadow">
+                  <h3 className="font-bold text-lg">Plano Ouro</h3>
+                  <p>R$ 49,90/mês</p>
+                  <Button className="mt-2">Assinar</Button>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </TabsContent>
 
-          <Button onClick={handleNextStep}>Avançar para Cadastro</Button>
-        </div>
-      )}
+        <TabsContent value="noticias">
+          <Card className="mt-4">
+            <CardContent>
+              <h2 className="text-2xl font-semibold">Últimas Notícias</h2>
+              <p className="text-gray-600">Fique por dentro das novidades do Socremo-Serrano!</p>
+            </CardContent>
+          </Card>
+        </TabsContent>
 
-      {step === 2 && (
-        <form onSubmit={handleSubmit} className="space-y-4">
-          <h2 className="text-2xl font-bold">Cadastro</h2>
-          <Input placeholder="Nome Completo" value={name} onChange={(e) => setName(e.target.value)} required />
-          <Input placeholder="Email" type="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
-          <Button type="submit">Finalizar Cadastro</Button>
-        </form>
-      )}
+        <TabsContent value="fotos">
+          <Card className="mt-4">
+            <CardContent>
+              <h2 className="text-2xl font-semibold">Galeria de Fotos</h2>
+              <p className="text-gray-600">Confira os melhores momentos do nosso time!</p>
+            </CardContent>
+          </Card>
+        </TabsContent>
 
-      <h2 className="text-2xl font-bold mt-6 mb-4">Notícias</h2>
-      <Card>
-        <CardContent>
-          <p>Em breve, novidades sobre o time!</p>
-        </CardContent>
-      </Card>
+        <TabsContent value="ingressos">
+          <Card className="mt-4">
+            <CardContent>
+              <h2 className="text-2xl font-semibold">Compra de Ingressos</h2>
+              <p className="text-gray-600">Garanta seu lugar no estádio!</p>
+              <Input
+                className="mt-4"
+                type="email"
+                placeholder="Digite seu e-mail para receber informações"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+              <Button className="mt-2">Comprar Ingressos</Button>
+            </CardContent>
+          </Card>
+        </TabsContent>
+      </Tabs>
     </div>
   );
 }
-
 
