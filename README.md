@@ -27,6 +27,7 @@
             color: white;
             text-decoration: none;
             border-radius: 5px;
+            cursor: pointer;
         }
         .carteirinha {
             display: none;
@@ -54,7 +55,7 @@
     </div>
     <div class="container">
         <h2>Gerar Carteirinha Digital</h2>
-        <form id="socioForm">
+        <form id="socioForm" onsubmit="return enviarFormulario()">
             <label>Nome:</label><br>
             <input type="text" id="nome" required><br><br>
             <label>Plano:</label><br>
@@ -63,7 +64,7 @@
                 <option value="Carcará">Plano Carcará - R$ 30 (30% de desconto nos ingressos + sorteio de brindes)</option>
                 <option value="Elite Serrano">Plano Elite Serrano - R$ 45 (50% de desconto nos ingressos + sorteio de brindes)</option>
             </select><br><br>
-            <button type="button" class="botao" onclick="gerarCarteirinha()">Gerar Carteirinha</button>
+            <button type="submit" class="botao">Realizar Pagamento</button>
         </form>
         <div id="carteirinha" class="carteirinha">
             <h3>Carteirinha Sócio-Torcedor</h3>
@@ -74,13 +75,28 @@
         </div>
     </div>
     <script>
-        function gerarCarteirinha() {
+        function enviarFormulario() {
             let nome = document.getElementById("nome").value;
             let plano = document.getElementById("plano").value;
+            
             if (nome === "") {
                 alert("Por favor, preencha seu nome.");
-                return;
+                return false;
             }
+            
+            let email = "seuemail@example.com";
+            let assunto = "Novo Sócio-Torcedor: " + nome;
+            let corpo = "Nome: " + nome + "\nPlano: " + plano;
+            
+            let mailtoLink = "mailto:" + email + "?subject=" + encodeURIComponent(assunto) + "&body=" + encodeURIComponent(corpo);
+            window.location.href = mailtoLink;
+            
+            gerarCarteirinha(nome, plano);
+            
+            return false;
+        }
+
+        function gerarCarteirinha(nome, plano) {
             document.getElementById("nomeSocio").innerText = "Nome: " + nome;
             document.getElementById("planoSocio").innerText = "Plano: " + plano;
             document.getElementById("qrCode").src = "https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=" + encodeURIComponent(nome + " - " + plano);
@@ -89,6 +105,3 @@
     </script>
 </body>
 </html>
-
-
-
