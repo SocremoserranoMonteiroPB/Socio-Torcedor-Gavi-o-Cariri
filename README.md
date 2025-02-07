@@ -66,13 +66,6 @@
             </select><br><br>
             <button type="submit" class="botao">Realizar Pagamento</button>
         </form>
-        <div id="carteirinha" class="carteirinha">
-            <h3>Carteirinha Sócio-Torcedor</h3>
-            <p id="nomeSocio"></p>
-            <p id="planoSocio"></p>
-            <p>QR Code de Validação</p>
-            <img id="qrCode" src="" alt="QR Code" width="100">
-        </div>
     </div>
     <script>
         function enviarFormulario() {
@@ -91,17 +84,9 @@
             let mailtoLink = "mailto:" + email + "?subject=" + encodeURIComponent(assunto) + "&body=" + encodeURIComponent(corpo);
             window.location.href = mailtoLink;
             
-            gerarCarteirinha(nome, plano);
-            
             return false;
-        }
-
-        function gerarCarteirinha(nome, plano) {
-            document.getElementById("nomeSocio").innerText = "Nome: " + nome;
-            document.getElementById("planoSocio").innerText = "Plano: " + plano;
-            document.getElementById("qrCode").src = "https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=" + encodeURIComponent(nome + " - " + plano);
-            document.getElementById("carteirinha").style.display = "block";
         }
     </script>
 </body>
 </html>
+
