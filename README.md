@@ -1,119 +1,81 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sócio-Torcedor Socremo-Serrano</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            background-image: url('papel-de-parede.jpg');
-            background-size: cover;
-            background-position: center;
-            padding: 20px;
-            color: white;
-        }
-        .container {
-            background-color: rgba(0, 0, 0, 0.8);
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            max-width: 800px;
-            margin: auto;
-        }
-        .planos {
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-        .plano {
-            background-color: #006400;
-            color: white;
-            padding: 15px;
-            border-radius: 8px;
-            width: 200px;
-            text-align: center;
-        }
-        .botao {
-            display: inline-block;
-            margin-top: 10px;
-            padding: 10px;
-            background-color: #ffcc00;
-            color: black;
-            text-decoration: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        .logo {
-            width: 200px;
-            margin-bottom: 10px;
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        .header {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        .banner {
-            font-size: 24px;
-            font-weight: bold;
-            background: red;
-            color: white;
-            padding: 10px;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            animation: piscar 1s infinite alternate;
-        }
-        @keyframes piscar {
-            from { opacity: 1; }
-            to { opacity: 0.5; }
-        }
-    </style>
-</head>
-<body>
-    <div class="banner">VENHA SER NOSSO SÓCIO-TORCEDOR</div>
-    <div class="header">
-        <img src="logo.png" alt="Logo Socremo-Serrano" class="logo">
-        <h1>Seja um Sócio-Torcedor e fortaleça o nosso time!</h1>
-    </div>
-    <div class="container">
-        <h2>Escolha seu Plano</h2>
-        <div class="planos">
-            <div class="plano">
-                <h3>Plano Gavião</h3>
-                <p>R$ 15/mês</p>
-                <p>15% de desconto no ingresso</p>
-                <button class="botao">Quero Assinar</button>
-            </div>
-            <div class="plano">
-                <h3>Plano Carcará</h3>
-                <p>R$ 30/mês</p>
-                <p>30% de desconto no ingresso</p>
-                <p>Sorteio de brindes</p>
-                <button class="botao">Quero Assinar</button>
-            </div>
-            <div class="plano">
-                <h3>Plano Elite Serrano</h3>
-                <p>R$ 45/mês</p>
-                <p>50% de desconto no ingresso</p>
-                <p>Sorteio de brindes</p>
-                <button class="botao">Quero Assinar</button>
-            </div>
+import React, { useState } from "react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+
+export default function SocremoSerranoSite() {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [plan, setPlan] = useState("");
+  const [payment, setPayment] = useState("");
+  const [step, setStep] = useState(1);
+
+  const handleNextStep = () => {
+    if (plan && payment) {
+      setStep(2);
+    } else {
+      alert("Por favor, selecione um plano e uma forma de pagamento.");
+    }
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    alert(`Cadastro realizado! Nome: ${name}, Email: ${email}, Plano: ${plan}, Pagamento: ${payment}`);
+  };
+
+  return (
+    <div className="p-6 max-w-lg mx-auto bg-white shadow-lg rounded-lg">
+      <h1 className="text-3xl font-bold mb-4 text-center text-blue-600">Sócio Torcedor - Socremo Serrano</h1>
+      <p className="mb-4 text-center text-gray-600">Escolha seu plano e faça parte do nosso time!</p>
+
+      {step === 1 && (
+        <div className="space-y-4">
+          <h2 className="text-2xl font-bold text-gray-700">Escolha seu Plano</h2>
+          <select
+            value={plan}
+            onChange={(e) => setPlan(e.target.value)}
+            className="w-full p-2 border rounded-lg"
+            required
+          >
+            <option value="">Selecione um plano</option>
+            <option value="Gavião Verde">Gavião Verde</option>
+            <option value="Carcará Vermelho">Carcará Vermelho</option>
+            <option value="Elite Serrano Azul">Elite Serrano Azul</option>
+          </select>
+
+          <h2 className="text-2xl font-bold text-gray-700">Forma de Pagamento</h2>
+          <select
+            value={payment}
+            onChange={(e) => setPayment(e.target.value)}
+            className="w-full p-2 border rounded-lg"
+            required
+          >
+            <option value="">Selecione um método</option>
+            <option value="Cartão de Crédito">Cartão de Crédito</option>
+            <option value="Boleto Bancário">Boleto Bancário</option>
+            <option value="Pix">Pix</option>
+          </select>
+
+          <Button onClick={handleNextStep} className="w-full bg-green-600 text-white">Avançar</Button>
         </div>
+      )}
+
+      {step === 2 && (
+        <form onSubmit={handleSubmit} className="space-y-4">
+          <h2 className="text-2xl font-bold text-gray-700">Cadastro</h2>
+          <Input placeholder="Nome Completo" value={name} onChange={(e) => setName(e.target.value)} required />
+          <Input placeholder="Email" type="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
+          <Button type="submit" className="w-full bg-blue-600 text-white">Finalizar Cadastro</Button>
+        </form>
+      )}
+
+      <h2 className="text-2xl font-bold mt-6 mb-4 text-gray-700">Notícias</h2>
+      <Card>
+        <CardContent>
+          <p className="text-gray-600">Em breve, novidades sobre o time!</p>
+        </CardContent>
+      </Card>
     </div>
-    <div class="container" style="margin-top: 20px;">
-        <h2>História do Clube</h2>
-        <p>O Socremo-Serrano é um time tradicional de Monteiro-PB, com grande paixão da torcida. Em 2025, o time disputará a 2ª divisão do Campeonato Paraibano Masculino, além do Campeonato Paraibano Feminino e as categorias de base Sub-15, Sub-17 e Sub-20.</p>
-    </div>
-    <audio autoplay loop>
-        <source src="musica.mp3" type="audio/mpeg">
-        Seu navegador não suporta o elemento de áudio.
-    </audio>
-</body>
-</html>
+  );
+}
 
