@@ -1,64 +1,99 @@
-
-import React, { useState } from "react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-
-export default function SocremoSerranoSite() {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [plan, setPlan] = useState("");
-  const [step, setStep] = useState(1);
-
-  const handleNextStep = () => setStep(2);
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    alert(`Cadastro realizado! Nome: ${name}, Email: ${email}, Plano: ${plan}`);
-  };
-
-  return (
-    <div className="p-6 max-w-lg mx-auto text-center">
-      <h1 className="text-3xl font-bold mb-4">Sócio Torcedor - Socremo Serrano</h1>
-      <p className="mb-4">Escolha seu plano e faça parte do nosso time!</p>
-
-      {step === 1 && (
-        <div className="space-y-4">
-          <h2 className="text-2xl font-bold">Escolha seu Plano</h2>
-          <select value={plan} onChange={(e) => setPlan(e.target.value)} className="w-full p-2 border">
-            <option value="">Selecione</option>
-            <option value="Gavião Verde">Gavião Verde</option>
-            <option value="Carcará Vermelho">Carcará Vermelho</option>
-            <option value="Elite Serrano Azul">Elite Serrano Azul</option>
-          </select>
-          <Button onClick={handleNextStep}>Avançar</Button>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sócio-Torcedor Gavião</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background: url('Imagem do WhatsApp de 2024-11-04 à(s) 14.05.30_b9f6afe8.jpg') no-repeat center center fixed;
+            background-size: cover;
+        }
+        header {
+            background-color: rgba(0, 100, 0, 0.8);
+            color: white;
+            padding: 15px;
+            font-size: 24px;
+        }
+        .logo {
+            width: 150px;
+            margin: 10px auto;
+            display: block;
+        }
+        .container {
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            display: inline-block;
+            margin-top: 20px;
+        }
+        .planos {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .plano {
+            background-color: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 250px;
+        }
+        .botao {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #006400;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        footer {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: rgba(0, 100, 0, 0.8);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="Imagem do WhatsApp de 2024-11-04 à(s) 14.05.30_b9f6afe8.jpg" alt="Logo Sócio-Torcedor Gavião" class="logo">
+        Sócio-Torcedor Gavião
+    </header>
+    <div class="container">
+        <h2>Seja um sócio e fortaleça o nosso time!</h2>
+        <div class="planos">
+            <div class="plano">
+                <h3>Plano Gavião</h3>
+                <p>R$ 15/mês</p>
+                <p>✅ 50% de desconto nos ingressos</p>
+                <p>✅ Sorteios mensais</p>
+                <a href="https://pag.ae/7_mvni32L" class="botao">Quero Assinar</a>
+            </div>
+            <div class="plano">
+                <h3>Plano Carcará</h3>
+                <p>R$ 30/mês</p>
+                <p>✅ Benefícios do Plano Gavião</p>
+                <p>✅ Camisa oficial após 6 meses</p>
+                <a href="https://pag.ae/7_mvwab4s" class="botao">Quero Assinar</a>
+            </div>
+            <div class="plano">
+                <h3>Plano Elite Serrano</h3>
+                <p>R$ 45/mês</p>
+                <p>✅ Benefícios do Plano Carcará</p>
+                <p>✅ Entrada gratuita nos jogos</p>
+                <a href="https://pag.ae/7_mvwDpup" class="botao">Quero Assinar</a>
+            </div>
         </div>
-      )}
-
-      {step === 2 && (
-        <form onSubmit={handleSubmit} className="space-y-4">
-          <h2 className="text-2xl font-bold">Cadastro</h2>
-          <Input placeholder="Nome Completo" value={name} onChange={(e) => setName(e.target.value)} required />
-          <Input placeholder="Email" type="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
-          <Button type="submit">Finalizar Cadastro</Button>
-        </form>
-      )}
-
-      <h2 className="text-2xl font-bold mt-6 mb-4">História do Clube</h2>
-      <p className="text-left text-sm">
-        A Socremo-Serrano representa a cidade de Monteiro-PB no futebol profissional, carregando uma história de tradição.
-        Fundada pela união do Serrano-PB e da Socremo, marcou o retorno do futebol profissional em 2024. O time disputa a
-        2ª divisão masculina, o campeonato feminino e as categorias de base (Sub-15, Sub-17 e Sub-20).
-      </p>
-
-      <h2 className="text-2xl font-bold mt-6 mb-4">Ingressos</h2>
-      <p className="text-left text-sm">Compre seu ingresso para os próximos jogos:</p>
-      <a href="https://pag.ae/7_mvni32L" className="block text-blue-500">Compra de Ingressos</a>
-
-      <h2 className="text-2xl font-bold mt-6 mb-4">Seja Sócio Torcedor</h2>
-      <p className="text-left text-sm">Escolha um plano e apoie o time!</p>
-      <a href="https://pag.ae/7_mvwab4s" className="block text-blue-500">Planos de Sócio Torcedor</a>
     </div>
-  );
-}
-
-
-
+    <footer>
+        📲 Contato: Wellington Paiva - WhatsApp: (83) 9638-0337
+    </footer>
+</body>
+</html>
