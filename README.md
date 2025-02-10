@@ -20,21 +20,21 @@ export default function SocremoSerranoSite() {
           <Card className="p-4 bg-gray-800">
             <CardContent>
               <h3 className="text-xl font-bold">Gavião Verde</h3>
-              <p>Acesso a jogos e descontos na loja oficial.</p>
+              <p>R$ 15,00 - 15% de desconto nos ingressos e sorteio de brindes.</p>
               <Button className="mt-2 bg-green-600" onClick={() => window.open('https://pag.ae/7_mvni32L')}>Assinar</Button>
             </CardContent>
           </Card>
           <Card className="p-4 bg-gray-800">
             <CardContent>
               <h3 className="text-xl font-bold">Carcará Vermelho</h3>
-              <p>Todos os benefícios do Gavião Verde + Camisa oficial.</p>
+              <p>R$ 30,00 - 30% de desconto nos ingressos e sorteio de brindes.</p>
               <Button className="mt-2 bg-red-600" onClick={() => window.open('https://pag.ae/7_mvwab4s')}>Assinar</Button>
             </CardContent>
           </Card>
           <Card className="p-4 bg-gray-800">
             <CardContent>
               <h3 className="text-xl font-bold">Elite Serrano Azul</h3>
-              <p>Experiência VIP com acesso a área exclusiva.</p>
+              <p>R$ 45,00 - 50% de desconto nos ingressos e sorteio de brindes.</p>
               <Button className="mt-2 bg-blue-600" onClick={() => window.open('https://pag.ae/7_mvwDpup')}>Assinar</Button>
             </CardContent>
           </Card>
